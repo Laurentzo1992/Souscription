@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main %}
+
+    <div class="content">
+        <!-- ======= Pricing Section ======= -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+
+                <div class="row no-gutters" style="">
+                    <style>
+                        .single {
+                            background: rgba(0, 99, 207, .08);
+                            padding: 10px 25px;
+                            border-radius: 5px;
+                            margin: 0 25px 32px 0;
+                            width: -moz-fit-content;
+                            width: fit-content;
+                            color: #0063cf !important;
+                        }
+                    </style>
+
+                    <div id="login" style="margin-top:30px">
+                        <div class="login_title">
+                                <h1>DEMANDE DE SOUSCRIPTION</h1>
+                        </div>
+                    <form method="POST" action="{% url 'login_user' %}" name="login">
+                        {% csrf_token %}
+                        <p>
+                        <input  name="username" id="username" type="text" size="15" placeholder="Email" autofocus autocomplete="off" :value="old('email')" value="" required ></p>
+                                                <p>
+                        <input name="password"  type="password" id="password" size="15" placeholder="Mot de passe" required></p>
+                                                <p style="">
+                        <button type="submit" class="connexion_btn">Se connecter</button></p>
+
+                    </form>
+                    <a style="font-size:11px; color:#43a047;" href="{% url 'createuser' %}"> Pas de compte&eacute; ? Créez en un </a>
+                    </div>  
+                </div> 
+                    
+                    
+                </div>
+
+            </div>
+        </section>
+    </div>
+    
+{% endblock main %}

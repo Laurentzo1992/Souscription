@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row">
+        <form action="{% url 'createuser' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nom d'utilisteur</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Votre Email</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label">Mot de passe</label>
+                <input type="password" name="password2" class="form-control" id="exampleInputPassword2">
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+  <div>
+{% endblock main %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+
+    <div class="content">
+
+        <div>
+                    <script>
+            setTimeout(function() {
+                document.querySelector('.alert.alert-success').style.display = 'none';
+            }, 3000); // Le message flash disparaîtra après 5 secondes (5000 millisecondes)
+        </script>
+
+        <div class="col-lg-6 offset-lg-5 animate__animated animate__fadeInUp">
+            
+
+            <br>
+        </div>
+
+
+            <div class="container">
+
+                    <div class="col">
+
+                        <div class="row">
+
+                            
+                            <div class="col-lg col-md mb20">
+                                <div class="mb-4">
+                                    <div class="" style="width:14rem; border:none; text-align:left; display:inline">
+                                      
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+            </div>
+
+    <div id="accuiel" > 
+        <img src="{% static 'media/img_static/armoirie_officielle.png' %}" alt="armoirie officielle du Burkina Faso" width=100% height=100%/>
+    </div> 
+<div id="bienvenue_cadre" >
+	<p class="bienvenue">BIENVENUE SUR LA PLATEFORME DE DELIVRANCE DE TITRES DE JOUISSANCE </p>
+	<p class="slogan"> La Direction générale des impôts, au service du développement économique et social!</p> 
+</div>
+            
+        <!-- End Contact Section -->
+
+
+
+        {% for message in messages %}
+        <script src="{% static 'js/sweetalert.min.js' %}"></script>
+        {% if message.tags == 'error' %}
+        <script>
+            var m = "{{ message }}";
+            swal("Réfusé!", m, "error");
+        </script>
+        {% elif message.tags == 'success' %}
+        <script>
+            var m = "{{ message }}";
+            swal("Bienvenue!", m, "success");
+        </script>
+        {% elif message.tags == 'warning' %}
+        <script>
+            var m = "{{ message }}";
+            swal("A bientôt!", m, "warning");
+        </script>
+        {% endif %}
+  
+        {% endfor%}
+{% endblock main %}

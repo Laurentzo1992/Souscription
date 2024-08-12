@@ -1,0 +1,523 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Portail | DGI</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'media/img_static/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'media/img_static/favicon.ico' %}" type="image/x-icon">
+
+    <!-- Vendor CSS Files -->
+    <link href="https://etitre2.dgi.bf/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="https://etitre2.dgi.bf/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://etitre2.dgi.bf/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://etitre2.dgi.bf/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://etitre2.dgi.bf/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://etitre2.dgi.bf/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+
+    <script src="https://etitre2.dgi.bf/js/jquery.min.js"></script>
+
+    <script src="https://etitre2.dgi.bf/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center"></div>
+            <div class="contact-info d-flex align-items-center">
+                <i class=" d-flex align-items-center ms-4"><span>Pour toutes informations complémentaires, veuillez contacter : </span></i>
+                <a href="tel:+22625316005"><i class="bi bi-phone d-flex align-items-center ms-4"><span>(226) 77505873/25392920/721144555</span></i></a>
+            </div>
+        </div> 
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="container  d-flex float-start logo">
+
+                <img src="https://etitre2.dgi.bf/img/dgi.png" width="50px" height="50px" />
+                <h1>
+                    <!--a href="/">Plateforme de demandes d'attestation et de PUH</a-->
+                    Plateforme de souscription
+                </h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <!--li><a class="active" href="/">Accueil</a></li-->
+                    <!--li><a href="contact">Contact</a></li-->
+                    <li><a href="#">FAQ</a></li
+                    <li><a class="active" href="{% url 'demande' %}">souscription</a></li>
+                    <li><a href="{% url 'login' %}">Connexion</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+    
+    <!-- ======= sideba<xr Section ======= -->
+            <div wire:snapshot="{&quot;data&quot;:{&quot;libelle_court&quot;:null,&quot;libelle_long&quot;:null,&quot;cnib&quot;:null,&quot;adresse&quot;:null,&quot;newDemande&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;editDemande&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;document1&quot;:null,&quot;document2&quot;:null,&quot;search&quot;:null,&quot;updateMode&quot;:false,&quot;currentPage&quot;:&quot;create&quot;,&quot;paginators&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}]},&quot;memo&quot;:{&quot;id&quot;:&quot;rd6loX0RfWe66TeUtOMI&quot;,&quot;name&quot;:&quot;demande-comp&quot;,&quot;path&quot;:&quot;Demande&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;fr&quot;},&quot;checksum&quot;:&quot;1e28498e293c9565862f0a33fe68e0ff57862032478716840f4677027d33e737&quot;}" wire:effects="[]" wire:id="rd6loX0RfWe66TeUtOMI">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<style>
+    .select2-container--default .select2-results__options {
+        z-index: 9999;
+        /* Définir un z-index élevé pour le menu déroulant */
+    }
+
+    .select2-container--default .select2-selection--single {
+        z-index: 1000;
+        /* Définir un z-index pour l'élément sélectionné */
+    }
+</style>
+
+{% block main %} {% endblock main %}
+
+</section>
+
+<!-- End About Section -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" ;></script>
+
+<script type="text/javascript">
+    $('#selectMultiple').select2();
+</script>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+
+        function verifier() {
+            const secondStepButton = document.getElementById('secondStepButton');
+            var parcelles = $("#parcelles").val();
+            var ilots = $("#ilots").val();
+            var sections = $("#sections").val();
+            var secteurs = $("#secteurs").val();
+            var communes = $("#communes").val();
+            var ref_attestation_prom = $("#ref_attestation_prom").val();
+            var promoteur_id = $("#promoteur_id").val();
+            if (parcelles === '' || ilots === '' || sections === '' || secteurs === '' || communes === '' || ref_attestation_prom === '' || promoteur_id === '') {
+                console.log(parcelles);
+                secondStepButton.disabled = true;
+            } else {
+                secondStepButton.disabled = false;
+            }
+        }
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    const quittance = document.getElementById('quittance')
+
+    quittance.addEventListener('change', (event) => {
+        const target = event.target
+        if (target.files && target.files[0]) {
+
+            /*Maximum allowed size in bytes
+              5MB Example
+              Change first operand(multiplier) for your needs*/
+            const maxAllowedSize = 3 * 1024 * 1024;
+            if (target.files[0].size > maxAllowedSize) {
+                // Here you can ask your users to load correct file
+                target.value = ''
+            }
+        }
+    })
+
+    const cnib_piece = document.getElementById('cnib_piece')
+
+    cnib_piece.addEventListener('change', (event) => {
+        const target = event.target
+        if (target.files && target.files[0]) {
+
+            /*Maximum allowed size in bytes
+              5MB Example
+              Change first operand(multiplier) for your needs*/
+            const maxAllowedSize = 3 * 1024 * 1024;
+            if (target.files[0].size > maxAllowedSize) {
+                // Here you can ask your users to load correct file
+                target.value = ''
+            }
+        }
+    })
+
+
+
+    const attestation = document.getElementById('attestation')
+
+    attestation.addEventListener('change', (event) => {
+        const target = event.target
+        if (target.files && target.files[0]) {
+
+            /*Maximum allowed size in bytes
+              5MB Example
+              Change first operand(multiplier) for your needs*/
+            const maxAllowedSize = 3 * 1024 * 1024;
+            if (target.files[0].size > maxAllowedSize) {
+                // Here you can ask your users to load correct file
+                target.value = ''
+            }
+        }
+    })
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#recap").click(function() {
+            var nom = $("#nip").val();
+            var email = $("#email").val();
+            var autre = $("#autre_usage_construction").val();
+            var superficie = $("#superficie").val();
+            var secteur = $("#secteur").val();
+            var numeroParcelle = $("#numero_parcelle").val();
+            var lot = $("#lot").val();
+            var section = $("#section").val();
+            var zone = $("#zone").val();
+            var isBuild = $("#is_build").val();
+            var telephone = $("#telephone").val();
+            var province = $("#provinces").find('option:selected').text();
+            var commune = $("#communes").find('option:selected').text();
+            var typConstruction = $("#typeConstructions").find('option:selected').text();
+            var usageConstruction = $("#usage_construction").find('option:selected').text();
+            var sousSol = $("input[type=radio][name=is_underground]:checked").val();
+            var cnib = $('#cnib')[0].files[0].name;
+            var puh = $('#puh')[0].files[0].name;
+            var plan = $('#plan')[0].files[0].name;
+            var coupe = $('#coupe')[0].files[0].name;
+
+            $('input[name=recapNom]').val(nom);
+            $('input[name=recapProvince]').val(province);
+            $('input[name=recapCommune]').val(commune);
+            $('input[name=recapMail]').val(email);
+            $('input[name=recapTel]').val(telephone);
+            $('input[name=recapCnib]').val(cnib);
+            $('input[name=recapPuh]').val(puh);
+            $('input[name=recapPlan]').val(plan);
+            $('input[name=recapCoupe]').val(coupe);
+            $('input[name=recapSousSol]').val(sousSol);
+            $('input[name=recapTypeConstruction]').val(typConstruction);
+            $('input[name=recapUsageConstruction]').val(usageConstruction);
+            $('input[name=recapAutreUsage]').val(autre);
+            $('input[name=recapSuperficie]').val(superficie);
+            $('input[name=recapSecteur]').val(secteur);
+            $('input[name=recapNumeroParcelle]').val(numeroParcelle);
+            $('input[name=recapLot]').val(lot);
+            $('input[name=recapSection]').val(section);
+            $('input[name=recapZone]').val(zone);
+            $('input[name=recapIsBuild]').val(isBuild);
+        });
+    });
+</script>
+
+
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+
+        $(".next").click(function() {
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            // Vérifiez si tous les champs obligatoires dans le formulaire actuel sont remplis
+            var isValid = true;
+            current_fs.find('input[required]').each(function() {
+                //if ($(this).val() === "") {
+                if (!$(this).val().trim()) {
+                    isValid = false;
+                    $(this).addClass("error");
+                } else {
+                    $(this).removeClass("error");
+                }
+            });
+
+            // Vérifiez si la case de confirmation est cochée
+            current_fs.find('checkbox[required]').each(function() {
+                //if ($(this).val() === "") {
+                if (!$(this).is(":checked")) {
+                    isValid = false;
+                    $(this).addClass("error");
+                } else {
+                    $(this).removeClass("error");
+                }
+            });
+
+            if (isValid) {
+                // Ajoutez la classe Active
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                // Affichez le champ suivant
+                next_fs.show();
+                // Masquez le champ actuel avec un style
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now) {
+                        // pour faire apparaître l'animation du champ
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        next_fs.css({
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 600
+                });
+            }
+        });
+
+
+        $(".previous").click(function() {
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //Remove class active
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+
+            //hide the current fieldset with style
+            current_fs.animate({
+                opacity: 0
+            }, {
+                step: function(now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    previous_fs.css({
+                        'opacity': opacity
+                    });
+                },
+                duration: 600
+            });
+        });
+
+        $('.radio-group .radio').click(function() {
+            $(this).parent().find('.radio').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+        $(".submit").click(function() {
+            return false;
+        })
+
+        $("div#moyenP1").hide();
+        $("div#moyenP2").hide();
+
+        jQuery('input[name=moyen]:radio').click(function() {
+            $("div#moyenP1").hide();
+            $("div#moyenP2").hide();
+            var divId = jQuery(this).val();
+            if (divId * 1 == 1) {
+                $("div#moyenP1").show()
+            } else {
+                $("div#moyenP2").show()
+            }
+        });
+
+    });
+</script>
+
+<script type='text/javascript'>
+    var myLink = document.querySelector('a[href="#"]');
+    myLink.addEventListener('click', function(e) {
+        e.preventDefault();
+    });
+</script>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('input[name="type_personne"]').change(function() {
+            if (this.value == 'PP') {
+                $('#pieceType').show();
+                $('#pieceType input').prop('disabled', false);
+
+                $('#pp').show();
+                $('#pm').hide();
+
+                // Désactiver les champs dans PM et supprimer l'attribut required
+                $('#pm input, #pm select, #pm textarea').prop('disabled', true).each(function() {
+                    if ($(this).attr('required')) {
+                        $(this).removeAttr('required').data('required', true);
+                    }
+                });
+
+                // Activer les champs dans PP et ajouter l'attribut required si nécessaire
+                $('#pp input, #pp select, #pp textarea').prop('disabled', false).each(function() {
+                    if ($(this).data('required')) {
+                        $(this).attr('required', true);
+                    }
+                });
+            } else if (this.value == 'PM') {
+                $('#pieceType').hide();
+                $('#pp').hide();
+                $('#pm').show();
+
+                // Désactiver les champs dans PP et supprimer l'attribut required
+                $('#pp input, #pp select, #pp textarea').prop('disabled', true).each(function() {
+                    if ($(this).attr('required')) {
+                        $(this).removeAttr('required').data('required', true);
+                    }
+                });
+
+                // Activer les champs dans PM et ajouter l'attribut required si nécessaire
+                $('#pm input, #pm select, #pm textarea').prop('disabled', false).each(function() {
+                    if ($(this).data('required')) {
+                        $(this).attr('required', true);
+                    }
+                });
+            }
+        });
+
+        // Initialize the form by disabling the inputs in the hidden sections and removing required attribute
+        $('#pp input, #pm input, #pp select, #pm select, #pp textarea, #pm textarea').prop('disabled', true).each(function() {
+            if ($(this).attr('required')) {
+                $(this).removeAttr('required').data('required', true);
+            }
+        });
+
+        $('#pieceType').prop('disabled', true);
+    });
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var submitBtn = document.getElementById('formValider');
+        var confirmationBox = document.getElementById('confirmationBox');
+
+        // Initial check
+        checkCondition();
+
+        // Add event listener to check the condition on checkbox change
+        confirmationBox.addEventListener('change', checkCondition);
+
+        function checkCondition() {
+            if (confirmationBox.checked) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstStepButton = document.getElementById('firstStepButton');
+        const typePersonneRadios = document.querySelectorAll('input[name="type_personne"]');
+
+
+
+        function checkRadioButtons() {
+            let isSelected = false;
+            typePersonneRadios.forEach(radio => {
+                    if (radio.checked && radio2.checked) {
+                        isSelected = true;
+                    }
+            });
+
+            firstStepButton.disabled = !isSelected;
+        }
+
+
+
+        typePersonneRadios.forEach(radio => {
+            radio.addEventListener('change', checkRadioButtons);
+        });
+
+        checkRadioButtons();
+
+    });
+</script>
+ 
+    
+    </div>
+
+        </div>
+    <!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <span>DGI</span>  @ 2024
+        </div>
+    </div>
+</footer
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <script>
+        $("#filter").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#mycard > div").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    </script>
+    <!-- Vendor JS Files -->
+    <script src="https://etitre2.dgi.bf/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="https://etitre2.dgi.bf/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://etitre2.dgi.bf/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://etitre2.dgi.bf/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://etitre2.dgi.bf/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://etitre2.dgi.bf/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="https://etitre2.dgi.bf/vendor/php-email-form/validate.js"></script>
+
+
+
+    <!-- Template Main JS File -->
+    <script src="{% static "js/main.js" %}"></script>
+    <script>
+        new TomSelect('select[multiple]', { plugins: { remove_button: { title: 'Supprimer' } } });
+    </script>
+</body>
+
+</html>
